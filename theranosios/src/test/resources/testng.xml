@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" verbose="5" preserve-order="true">
+  <test name="Login Test">
+  	<parameter name = "testsuiteid" value = "TS1"/>
+  	<parameter name = "passcodetimes" value = "2"/>	
+    <classes>
+   <class name="com.theranos.test.theranosios.base.SetUpTest"/>   
+      <class name="com.theranos.test.theranosios.base.TestRunner"/>
+      <class name="com.theranos.test.theranosios.LoginTest"/>
+      <class name="com.theranos.test.theranosios.PassCodeTest"/>
+ 	    <methods>
+     	    <exclude name="resetPasscodeTest"/>
+     	    <exclude name="clearPasscodeTest"/>
+     	</methods>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
