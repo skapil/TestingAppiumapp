@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestSuite" time="226.573" tests="19" errors="0" skipped="0" failures="1">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Libraries"/>
+    <property name="java.vm.version" value="20.65-b04-462"/>
+    <property name="awt.nativeDoubleBuffering" value="true"/>
+    <property name="gopherProxySet" value="false"/>
+    <property name="mrj.build" value="11M4609"/>
+    <property name="java.vm.vendor" value="Apple Inc."/>
+    <property name="java.vendor.url" value="http://www.apple.com/"/>
+    <property name="path.separator" value=":"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="/Users/skaippa/Documents/sunil_workspace/workspace/appium_workspace/theranosios"/>
+    <property name="java.runtime.version" value="1.6.0_65-b14-462-11M4609"/>
+    <property name="java.awt.graphicsenv" value="apple.awt.CGraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/endorsed"/>
+    <property name="os.arch" value="x86_64"/>
+    <property name="java.io.tmpdir" value="/var/folders/rd/d_5ss7j11ng8kk2k4cjyprjm0000gp/T/"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Sun Microsystems Inc."/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="classworlds.conf" value="/usr/local/Cellar/maven/3.2.1/libexec/bin/m2.conf"/>
+    <property name="sun.jnu.encoding" value="MacRoman"/>
+    <property name="java.library.path" value="/Users/skaippa/Documents/softwarebundle/ioslogs/libimobiledevice-macosx/::.:/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="50.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.9.2"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="user.home" value="/Users/skaippa"/>
+    <property name="user.timezone" value="America/Los_Angeles"/>
+    <property name="java.awt.printerjob" value="apple.awt.CPrinterJob"/>
+    <property name="java.specification.version" value="1.6"/>
+    <property name="file.encoding" value="MacRoman"/>
+    <property name="user.name" value="skaippa"/>
+    <property name="java.class.path" value="/usr/local/Cellar/maven/3.2.1/libexec/boot/plexus-classworlds-2.5.1.jar"/>
+    <property name="org.slf4j.simpleLogger.defaultLogLevel" value="info"/>
+    <property name="java.vm.specification.version" value="1.0"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher test"/>
+    <property name="java.specification.vendor" value="Sun Microsystems Inc."/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="apple.awt.CToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.6.0_65"/>
+    <property name="java.ext.dirs" value="/Library/Java/Extensions:/System/Library/Java/Extensions:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/ext"/>
+    <property name="sun.boot.class.path" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/jsfd.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar:/System/Library/Frameworks/JavaVM.framework/Frameworks/JavaRuntimeSupport.framework/Resources/Java/JavaRuntimeSupport.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/ui.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/laf.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/sunrsasign.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/jsse.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/jce.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/charsets.jar"/>
+    <property name="java.vendor" value="Apple Inc."/>
+    <property name="maven.home" value="/usr/local/Cellar/maven/3.2.1/libexec"/>
+    <property name="file.separator" value="/"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.apple.com/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="mrj.version" value="1070.1.6.0_65-462"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="sun.cpu.isalist" value=""/>
+  </properties>
+  <testcase name="getLogLocation" classname="com.theranos.test.theranosios.base.SetUpTest" time="0.001"/>
+  <testcase name="getTestData" classname="com.theranos.test.theranosios.LoginTest" time="0.043"/>
+  <testcase name="logInOption" classname="com.theranos.test.theranosios.LoginTest" time="13.541"/>
+  <testcase name="testLoginpage" classname="com.theranos.test.theranosios.LoginTest" time="30.163"/>
+  <testcase name="openAbout" classname="com.theranos.test.theranosios.MenuTest" time="0"/>
+  <testcase name="openAppointments" classname="com.theranos.test.theranosios.MenuTest" time="4.537"/>
+  <testcase name="openHome" classname="com.theranos.test.theranosios.MenuTest" time="4.517"/>
+  <testcase name="openLabOrders" classname="com.theranos.test.theranosios.MenuTest" time="4.515"/>
+  <testcase name="openLocations" classname="com.theranos.test.theranosios.MenuTest" time="4.514"/>
+  <testcase name="openProfile" classname="com.theranos.test.theranosios.MenuTest" time="4.522"/>
+  <testcase name="openResults" classname="com.theranos.test.theranosios.MenuTest" time="4.578"/>
+  <testcase name="openSettings" classname="com.theranos.test.theranosios.MenuTest" time="4.518"/>
+  <testcase name="openHome" classname="com.theranos.test.theranosios.MenuTest" time="4.579"/>
+  <testcase name="openProfile" classname="com.theranos.test.theranosios.MenuTest" time="4.521"/>
+  <testcase name="openBasicInfo" classname="com.theranos.test.theranosios.BasicInfoTest" time="15.1"/>
+  <testcase name="getTestData" classname="com.theranos.test.theranosios.BasicInfoTest" time="0.021"/>
+  <testcase name="provideBasicInfo" classname="com.theranos.test.theranosios.BasicInfoTest" time="110.341">
+    <failure message="Index: 18, Size: 17" type="java.lang.IndexOutOfBoundsException">java.lang.IndexOutOfBoundsException: Index: 18, Size: 17
+	at java.util.ArrayList.RangeCheck(ArrayList.java:547)
+	at java.util.ArrayList.get(ArrayList.java:322)
+	at com.theranos.test.theranosios.BasicInfoTest.checkForBillingAddress(BasicInfoTest.java:517)
+	at com.theranos.test.theranosios.BasicInfoTest.provideBasicInfo(BasicInfoTest.java:154)
+</failure>
+    <system-out>Providing Basic info of user :
+Value of the total records in excel sheet  
+56
+========================Getting data to provide to application===============================
+TC3
+yes
+Alpha
+November
+Oscar
+27/02/1990
+Female
+Mobile Phone
+1111 Health Ave.
+Test St.
+San Jose
+Wyoming
+no
+1278 different St.
+B4567
+Sunnyvale
+Oregon
+=========================Got all the test data to process=================================
+
+ Tap on Edit option--------------
+Trying first time
+Completed editing, now stating to provide data
+
+ First Name of User: -----------------------
+Providing the data to field  : Alpha
+Clearing the test field
+Waiting for 3 seconds before clearing the data
+waiting for 3 seconds
+providing data on textfield
+waiting for 3 seconds
+
+ Middle Name of User:-----------------------
+Providing the data to field  : November
+Clearing the test field
+Waiting for 3 seconds before clearing the data
+waiting for 3 seconds
+providing data on textfield
+waiting for 3 seconds
+
+ Last Name of User:--------------------------
+Providing the data to field  : Oscar
+Clearing the test field
+Waiting for 3 seconds before clearing the data
+waiting for 3 seconds
+providing data on textfield
+waiting for 3 seconds
+
+ Date of Birth of User:-------------------------
+Date of Birth of user :  27/02/1990
+Verifying the Cancel button
+Tapping on Cancel
+Waiting for 2 seconds before providing the data
+Patient Date Of Birth of the Theranos user
+Providing year of DOB :  1990
+Providing Day of DOB   :  02
+Not able to locate the element using pickwheel and sendkey
+Ignoring this field
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Hiding the Exception message here >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 
+
+pop-up message apears on device :  No Alert Found
+
+Gender of User: ------
+Waiting for 3 seconds
+Gender of User  : Female
+Waiting for 3 seconds
+Found the gender option to select
+waiting for 3 seconds
+
+Phone Number of User: -----------
+Providing the data to field  : Mobile Phone
+Clearing the test field
+Waiting for 3 seconds before clearing the data
+waiting for 3 seconds
+providing data on textfield
+Got exception while writing the data in text field
+Ignoring this field
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Hiding the Exception message here >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 
+
+
+ Mailing Street Address 1 of the User: ------------------------------
+Providing the data to field  : no
+Clearing the test field
+Waiting for 3 seconds before clearing the data
+waiting for 3 seconds
+providing data on textfield
+waiting for 3 seconds
+
+ Mailing Street Address 2 for the User: ----------------------------
+Providing the data to field  : 1278 different St.
+Clearing the test field
+Waiting for 3 seconds before clearing the data
+waiting for 3 seconds
+providing data on textfield
+waiting for 3 seconds
+
+ Mailing City of the User: ---------------------------------
+Providing the data to field  : B4567
+Clearing the test field
+Waiting for 3 seconds before clearing the data
+waiting for 3 seconds
+providing data on textfield
+waiting for 3 seconds
+
+ Mailing State of the User: ---------------------------------
+State of user :  Oregon
+Verifying the Cancel button
+Tapping on Cancel
+Waiting for 2 seconds before providing the data
+Providing the state name
+
+ Mailing Zip Code of the User: ------------------------------
+Providing the data to field  : Oregon
+Clearing the test field
+Waiting for 3 seconds before clearing the data
+waiting for 3 seconds
+providing data on textfield
+Got exception while writing the data in text field
+Ignoring this field
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Hiding the Exception message here >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 
+
+
+ Checking if user want to have the same billing address as mailing address------------------
+</system-out>
+  </testcase>
+  <testcase name="getTestData" classname="com.theranos.test.theranosios.InsuranceTest" time="0.018"/>
+  <testcase name="openInsurancePage" classname="com.theranos.test.theranosios.InsuranceTest" time="16.544"/>
+</testsuite>

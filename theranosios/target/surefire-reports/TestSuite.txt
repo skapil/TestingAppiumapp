@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 19, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 381.802 sec <<< FAILURE!
+provideBasicInfo(com.theranos.test.theranosios.BasicInfoTest)  Time elapsed: 110.341 sec  <<< FAILURE!
+java.lang.IndexOutOfBoundsException: Index: 18, Size: 17
+	at java.util.ArrayList.RangeCheck(ArrayList.java:547)
+	at java.util.ArrayList.get(ArrayList.java:322)
+	at com.theranos.test.theranosios.BasicInfoTest.checkForBillingAddress(BasicInfoTest.java:517)
+	at com.theranos.test.theranosios.BasicInfoTest.provideBasicInfo(BasicInfoTest.java:154)
+
