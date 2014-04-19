@@ -2,6 +2,7 @@ package com.theranos.test.theranosios;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.theranos.test.theranosios.base.*;
@@ -17,15 +18,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-
 import com.theranos.test.theranosios.drivers.ExcelDriver;
 
 public class LoginTest 
 {	
  
   private static ExcelDriver xlUtil;
-  private boolean flag;
+  private boolean flag = false;
   private WebDriver driver;
+  PerformOperationsTest operation = new PerformOperationsTest();
 
   //This is only for testing  
    private static ArrayList<String> executabletestid= new ArrayList<String>(); 
@@ -36,7 +37,8 @@ public class LoginTest
    {
 	   //Setting up the environment
    	   driver = SetUpTest.driver;
-   	   System.out.println("All the setup has completed, Now starting -----LOGIN TEST-----");
+   	   System.out.println("\n\n All the setup has completed, Now starting \n"
+   	   		+ "-------------------------LOGIN TEST-----------------------\n\n");
    }
    
 
@@ -51,20 +53,39 @@ public class LoginTest
 			  System.out.println("values of test ids which will be run with this test suite :   "+executabletestid.get(iter));
    }
    
-  @Test
+  @Test 
   public void logInOption() throws Exception 
-  {
-	  System.out.println("Login into the application");
-	  driver.findElement(By.xpath("//window[1]/button[2]")).click();
+  {	 
+	try
+	  {
+	    System.out.println("Login into the application");
+	    flag = false;
+	    flag = operation.dimissAllAlert(driver);
+	  try {
+	    System.out.println("Tapping on ios login button");
+	  driver.findElement(By.xpath("//*[contains(@text,'log in')]")).click();
+	  flag = false;
+	  System.out.println("Verifying in case there is any pop up in login screen");
+	  flag = operation.dimissAllAlert(driver);	  
+	  }
+	  catch(Exception e) {
+	    System.out.println("Not able to tap on the Log in Button");
+	  }
+	  
 	  driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+	  }					
+	  catch(Exception e)
+	  {			  
+	    System.out.println("Login button not found in Application Main Screen");
+	    System.out.println("Expected Exception raised here \n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+	  }
   }
-  
   
   public String getUserName(int rownumber) throws IOException
   {
 	  ArrayList<String> rowvalues = xlUtil.getExecutableRowValues(rownumber, executabletestid);
 	  if (rowvalues.size() > 0)
-		  return rowvalues.get(xlUtil.getColumnIndex("Input-Email")).toString();
+		  return rowvalues.get(xlUtil.getExcelColumnIndex("Input-Email")).toString();
 	  return "none";
   }
   
@@ -72,72 +93,104 @@ public class LoginTest
   {
 	  ArrayList<String> rowvalues = xlUtil.getExecutableRowValues(rownumber,executabletestid);
 	  if (rowvalues.size() > 0)
-		  return rowvalues.get(xlUtil.getColumnIndex("Input-Password")).toString();
+		  return rowvalues.get(xlUtil.getExcelColumnIndex("Input-Password")).toString();
 	  return "none";
   }
   
   @Test (dependsOnMethods = {"logInOption","getTestData"})
   public void testLoginpage() throws Exception
   {	
-	 for (int iter = xlUtil.getRowIndex("Executable") + 1; iter < xlUtil.getTotalRows(); iter++)
+	 WebElement elementid = null;
+	 for (int iter = xlUtil.getExcelRowIndex("Executable") + 1; iter < xlUtil.getTotalRows(); iter++)
 	 {	  
-		 ArrayList<String> rowvalues = xlUtil.getRowValues(iter);
+		 ArrayList<String> rowvalues = xlUtil.getRowValues(iter);		 
 		 
 		  if (rowvalues.size() <= 0)
 		  {			 
 			  continue;
-		  }		  
-		  System.out.println("Providing the Email address  : "+getUserName(iter));
-		  WebElement username = driver.findElement(By.xpath("//window[1]/textfield[1]"));
-		  username.clear();
-		  username.sendKeys(getUserName(iter));
-		  driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-
-		  System.out.println("Providing the Password  : "+getPassword(iter));
-	      WebElement password = driver.findElement(By.xpath("//window[1]/secure[1]"));
-	      password.sendKeys(getPassword(iter));
-		  driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		  }	
+		  if (!getUserName(iter).equalsIgnoreCase("none"))
+		  {
+			  System.out.println("Providing the Email address  : "+getUserName(iter));
+			  //WebElement username = driver.findElement(By.xpath("//window[1]/textfield[1]"));
+			  try
+			  {
+				elementid = driver.findElement(By.xpath("//*[contains(@type,'textfield')]"));
+			  }
+			  catch(Exception e){
+				elementid = driver.findElement(By.id("com.theranos.me:id/login_email_edit"));
+			  }
+			  elementid.clear();
 		  
-		  driver.findElement(By.name("Done")).click();
+			  elementid.sendKeys(getUserName(iter));
+			  driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		  }
+
+		  if (!getPassword(iter).equalsIgnoreCase("none"))
+		  {
+			  System.out.println("Providing the Password  : "+getPassword(iter));
+		      //WebElement password = driver.findElement(By.xpath("//window[1]/secure[1]"));
+			  try
+			  {
+				elementid = driver.findElement(By.xpath("//*[contains(@type,'secure')]"));
+			  }
+			  catch(Exception e)
+			  {
+		        elementid = driver.findElement(By.id("com.theranos.me:id/login_password_edit"));
+			  }
+			  
+		      elementid.sendKeys(getPassword(iter));
+			  driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		  }
+		  
+		  if (!getUserName(iter).equalsIgnoreCase("none") && !getPassword(iter).equalsIgnoreCase("none"))
+			  try{		  
+			   driver.findElement(By.name("Done")).click();
+			  }
+		  	  catch(Exception e){
+		  		driver.findElement(By.id("com.theranos.me:id/login_btn")).click();
+			   }
+		  else
+			  continue;
 		  
 		  Thread.sleep(2000);
 		  flag = false;
 		
-		while (flag == false)
-		{ 			
+		flag = operation.dimissAllAlert(driver);		
+	    		
+		if (flag == false)
+		{
+			System.out.println("Looking for the login button");
 			try
 			{
-				System.out.print("pop-up message apears on device :  ");
-				System.out.println(driver.findElement(By.name("OK")).isDisplayed());
-				if(driver.findElement(By.name("OK")).isDisplayed())
-				{
-					System.out.println("Error Pop up displayed");
-					driver.switchTo().alert().accept();
-					Thread.sleep(2000);
-					flag = false;
-				}
-			}
+				if ((driver.findElement(By.name("Log in")).isDisplayed()))
+				  {
+				      System.out.println("Login into account");
+				      try{
+				      driver.findElement(By.name("Log in")).click();
+				      }
+				      catch(Exception e){
+				    	  driver.findElement(By.id("com.theranos.me:id/login_btn")).click();
+				      }
+				      driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+				      break;
+				  }
+			 }
 			catch(Exception NoSuchElementException){
-				    System.out.println("No Alert Found");
-					flag = true;
-			}
-		}	
-	    
-		System.out.println("Looking for the login button");
-		if ((driver.findElement(By.name("Login")).isDisplayed()) && (flag == false ))
-		  {
-		      System.out.println("Login into account");
-		      driver.findElement(By.name("Login")).click();
-		      driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		      break;
-		  }	
+			    System.out.println("No Login Button Found");
+				flag = true;
+			   }
+		   }		
+		else
+			System.out.println("All alert message has been dismissed");
       }
   } 
+ 
   
   @AfterClass
   public void afterTest() 
   {
-	  System.out.println("------Login Theranos Application--- test has completed");
+	  System.out.println("\n-------------------Login Theranos Application test has completed-----------------------\n\n");
   }
 
 }

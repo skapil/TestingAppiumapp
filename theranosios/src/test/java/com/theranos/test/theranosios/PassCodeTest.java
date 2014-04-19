@@ -14,6 +14,7 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestContext;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
@@ -21,6 +22,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import com.theranos.test.theranosios.base.PerformOperationsTest;
 import com.theranos.test.theranosios.base.SetUpTest;
 import com.theranos.test.theranosios.base.TestSuiteReader;
 import com.theranos.test.theranosios.drivers.ExcelDriver;
@@ -29,6 +31,8 @@ public class PassCodeTest {
 
 	private WebDriver driver;
 	private static ExcelDriver xlUtil;
+	private boolean flag = false;
+	PerformOperationsTest operation = new PerformOperationsTest();
 	
 	 //These data structure use to store testsuites and test ids 
 	 private static ArrayList<String> executabletestid= new ArrayList<String>();    //All the executable test id store on this
@@ -39,7 +43,8 @@ public class PassCodeTest {
 	{
 	  //Setting up the environment
 	   driver = SetUpTest.driver;
-	   System.out.println("All the setup has completed, Now starting -----PASSCODE PAGE TEST-----\n");
+	   System.out.println("All the setup has completed for Passcode Test, Starting "
+	   		+ "\n ----------------------PASSCODE PAGE TEST-----------------------------\n");
 	 }
 	
 	  @Test (dataProviderClass = com.theranos.test.theranosios.base.TestRunner.class, dataProvider = "testdata")
@@ -50,12 +55,13 @@ public class PassCodeTest {
 	   	   executabletestid = tsr.getSuiteTestId(suite_test_id,"TS2");
 		   xlUtil = new ExcelDriver("testcasedata.xls","TestData-TS2");
 			  for (int iter = 0; iter < executabletestid.size(); iter++)
-				  System.out.println("values of test ids which will be run with this test suite :   "+executabletestid.get(iter));
+				  System.out.println("value of test ids which will be run with this test suite :   "+executabletestid.get(iter));
 	   }
 		 
 	 // Verify if the Passcode screen display on app
 	 public boolean verifyPasscodeScreen()
 	 {
+		 System.out.println("Looking for Passcode screen on application");
 		 WebElement passcodevalue = driver.findElement(By.xpath("//window[1]/text[1]"));		 
 		 
 		  if (passcodevalue.getText().equalsIgnoreCase("Enter your new passcode") ||  (passcodevalue.getText().equalsIgnoreCase("Re-enter your new passcode")) ||
@@ -66,84 +72,91 @@ public class PassCodeTest {
 	 }	 
 	 
 	 //Return the passcode from the xl sheet
-	 public int[] getPasscode(int rownumber, String columnname) throws IOException
+	 public String getPasscode(int rownumber, String columnname) throws IOException
 	 {
-		 int[] passcodevalues = new int[5];
-		 int count = 3;
+		 String newpasscode = null;
 		 ArrayList<String> rowvalues = xlUtil.getExecutableRowValues(rownumber, executabletestid);
 		 
 		 if (rowvalues.size() > 0)
 		 {
-			 String passcodevalue = rowvalues.get(xlUtil.getColumnIndex(columnname)).toString();
+			 String passcodevalue = rowvalues.get(xlUtil.getExcelColumnIndex(columnname)).toString();
 			 if (passcodevalue.isEmpty())
-			 {
-				passcodevalues[4] = 9;
-			 	return passcodevalues;
-			 }
-			 int passcodeintvalue = Integer.parseInt(passcodevalue);
-			 
-			 //Putting all digits in different index of an array			 
-			 while (count >= 0)
-			 {
-				 passcodevalues[count] = (passcodeintvalue % 10);	
-				 passcodeintvalue /= 10;
-				 count--;
-			 }
+			 	return "null";
+					    
+			for (int iter = 0; iter < passcodevalue.length(); iter++)
+			{
+				String value = Character.toString(passcodevalue.charAt(iter));				
+			
+				if (value.equals("-"))
+					continue;
+				
+				if (iter == 0) 
+					newpasscode = value;
+				else
+					newpasscode += value;	
+		      }
 		 }
-		 return passcodevalues;
+		 return newpasscode;
 	 }
 
 	 //Provide passcode on Passcode Screen
 	  @Test
-	  @Parameters ("passcodetimes")
 	  public void providePasscodeTest(String passcodetimes) throws IOException{
-		  int[] passcodevalues = new int[4];
-		  int[] confirmpasscode = new int[4];
+		  String buttonlocation;
 		  int count = 0;
-		  int buttonlocation;
 		  
-		  for (int iter = xlUtil.getRowIndex("Executable") + 1; iter < xlUtil.getTotalRows(); iter++)
+		  System.out.println("Waiting for 5 seconds before starting the test...");
+		  driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
+		  for (int iter = xlUtil.getExcelRowIndex("Executable") + 1; iter < xlUtil.getTotalRows(); iter++)
 			 {	  
-				 ArrayList<String> rowvalues = xlUtil.getRowValues(iter);
-				 
-				  if (rowvalues.size() <= 0)
-				  {			 
-					  continue;
-				  }		  
-		          passcodevalues = getPasscode(iter,"Passcode"); 
-		          System.out.println("Got this passcode : "+passcodevalues);
-		          //if passcode field in excel sheet is empty
-		          if (passcodevalues[4] == 9)
-		        	  continue;
-				  System.out.println("Providing the passcode");
-				  count = 0;
-				  while(count < 4)
+				 String passcode = null;
+				 passcode = getPasscode(iter,"Passcode"); 
+				 System.out.println("Got this Passcode : "+passcode);
+							 
+				 //if passcode field in excel sheet is empty
+				  if (passcode.equalsIgnoreCase("null"))
 				  {
-					  if (passcodevalues[count] == 0)
-					      buttonlocation = 11;
+					  System.out.println("No Passcode found, trying for the next row ");
+					  continue;	
+				  }					  	          
+				  
+				  count = 0;
+				  System.out.println("Providing this value as passcode : "+passcode);
+				  while(count < passcode.length())
+				  {
+					  String value = Character.toString(passcode.charAt(count));
+					  if (value.equalsIgnoreCase("0"))
+					      buttonlocation = "10";
 					  else
-						  buttonlocation = passcodevalues[count]; 
+						  buttonlocation = value;
 					  driver.findElement(By.xpath("//window[1]/button["+buttonlocation+"]")).click();
 					  driver.manage().timeouts().implicitlyWait(1,TimeUnit.SECONDS);
 					  count++;
 				  }
 				  
-				  confirmpasscode = getPasscode(iter,"ConfirmPasscode");
+				  String confirmpasscode = getPasscode(iter,"ConfirmPasscode");
 				  count = 0;
-				  //if passcode field in excel sheet is empty
-		          if (passcodevalues[4] == 9)
-		        	  continue;
-		          System.out.println("Providing the confirm passcode");
-				  while(count < 4)
+				  
+				  //if Confirmpasscode field in excel sheet is empty			
+				  if (confirmpasscode.equalsIgnoreCase("null"))
 				  {
-					  if (confirmpasscode[count] == 0)
-					      buttonlocation = 11;
+					  System.out.println("No Passcode found in this row ");
+					  continue;	
+				  }
+				  
+				  System.out.println("Providing this value as confirm passcode : "+confirmpasscode);
+		    	  while(count < confirmpasscode.length())
+				  {
+					  String value = Character.toString(confirmpasscode.charAt(count));
+					  if (value.equalsIgnoreCase("0"))
+					      buttonlocation = "10";
 					  else
-						  buttonlocation = passcodevalues[count]; 
+						  buttonlocation = value;
 					  driver.findElement(By.xpath("//window[1]/button["+buttonlocation+"]")).click();
 					  driver.manage().timeouts().implicitlyWait(1,TimeUnit.SECONDS);
 					  count++;
 				  }
+		    	  flag = operation.dimissAllAlert(driver);
 			  
 		     }
 		     if (!verifyPasscodeScreen())
@@ -178,9 +191,10 @@ public class PassCodeTest {
 			  System.out.println("Passcode screen not found");
 	  }
 	  
-	  @AfterTest
-	  public void tearDown() throws Exception {
-		System.out.println("Test has been completed");
-	    driver.quit();
+	  @AfterClass
+	  public void afterTest()
+	  {
+		  System.out.println("\n----------------------Passcode test has completed-----------------------\n\n");
 	  }
 }
+

@@ -1,36 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="1" failed="1" total="3" passed="1">
+<testng-results skipped="18" failed="3" total="21" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="347" started-at="2014-03-06T03:55:20Z" finished-at="2014-03-06T03:55:20Z">
+  <suite name="Default suite" duration-ms="114" started-at="2014-04-03T18:23:26Z" finished-at="2014-04-03T18:23:27Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="347" started-at="2014-03-06T03:55:20Z" finished-at="2014-03-06T03:55:20Z">
+    <test name="Default test" duration-ms="114" started-at="2014-04-03T18:23:26Z" finished-at="2014-04-03T18:23:27Z">
       <class name="com.theranos.test.theranosios.LoginTest">
-        <test-method status="PASS" signature="getTestData(java.util.ArrayList)[pri:0, instance:com.theranos.test.theranosios.LoginTest@64633e5e]" name="getTestData" duration-ms="306" started-at="2014-03-05T19:55:20Z" data-provider="testdata" finished-at="2014-03-05T19:55:20Z">
+        <test-method status="SKIP" signature="setEnv()[pri:0, instance:com.theranos.test.theranosios.LoginTest@739e8329]" name="setEnv" is-config="true" duration-ms="0" started-at="2014-04-03T11:23:26Z" finished-at="2014-04-03T11:23:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setEnv -->
+        <test-method status="SKIP" signature="getTestData(java.util.Map)[pri:0, instance:com.theranos.test.theranosios.LoginTest@739e8329]" name="getTestData" duration-ms="5" started-at="2014-04-03T11:23:26Z" data-provider="testdata" finished-at="2014-04-03T11:23:26Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[]]]>
+                <![CDATA[{}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getTestData -->
-        <test-method status="FAIL" signature="logInOption()[pri:0, instance:com.theranos.test.theranosios.LoginTest@64633e5e]" name="logInOption" duration-ms="10" started-at="2014-03-05T19:55:20Z" finished-at="2014-03-05T19:55:20Z">
-          <exception class="java.lang.NullPointerException">
+        <test-method status="SKIP" signature="logInOption()[pri:0, instance:com.theranos.test.theranosios.LoginTest@739e8329]" name="logInOption" duration-ms="1" started-at="2014-04-03T11:23:26Z" finished-at="2014-04-03T11:23:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logInOption -->
+        <test-method status="SKIP" signature="testLoginpage()[pri:0, instance:com.theranos.test.theranosios.LoginTest@739e8329]" name="testLoginpage" duration-ms="1" started-at="2014-04-03T11:23:26Z" depends-on-methods="com.theranos.test.theranosios.LoginTest.getTestData, com.theranos.test.theranosios.LoginTest.logInOption" finished-at="2014-04-03T11:23:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLoginpage -->
+        <test-method status="SKIP" signature="afterTest()[pri:0, instance:com.theranos.test.theranosios.LoginTest@739e8329]" name="afterTest" is-config="true" duration-ms="0" started-at="2014-04-03T11:23:26Z" finished-at="2014-04-03T11:23:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- com.theranos.test.theranosios.LoginTest -->
+      <class name="com.theranos.test.theranosios.MenuTest">
+        <test-method status="SKIP" signature="setEnv()[pri:0, instance:com.theranos.test.theranosios.MenuTest@1f3785d3]" name="setEnv" is-config="true" duration-ms="0" started-at="2014-04-03T11:23:26Z" finished-at="2014-04-03T11:23:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setEnv -->
+        <test-method status="FAIL" signature="openAbout(java.lang.String)[pri:0, instance:com.theranos.test.theranosios.MenuTest@1f3785d3]" name="openAbout" duration-ms="0" started-at="2014-04-03T11:23:26Z" finished-at="2014-04-03T11:23:26Z">
+          <exception class="org.testng.TestNGException">
+            <message>
+              <![CDATA[
+Parameter 'device' is required by @Test on method openAbout but has not been marked @Optional or defined
+in /private/var/folders/rd/d_5ss7j11ng8kk2k4cjyprjm0000gp/T/testng-eclipse-1866437451/testng-customsuite.xml]]>
+            </message>
             <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-	at com.theranos.test.theranosios.LoginTest.logInOption(LoginTest.java:64)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
-	at java.lang.reflect.Method.invoke(Method.java:597)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+              <![CDATA[org.testng.TestNGException: 
+Parameter 'device' is required by @Test on method openAbout but has not been marked @Optional or defined
+in /private/var/folders/rd/d_5ss7j11ng8kk2k4cjyprjm0000gp/T/testng-eclipse-1866437451/testng-customsuite.xml
+	at org.testng.internal.Parameters.createParameters(Parameters.java:155)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:358)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:450)
+	at org.testng.internal.Invoker.handleParameters(Invoker.java:1383)
+	at org.testng.internal.Invoker.createParameters(Invoker.java:1075)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1180)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
 	at org.testng.TestRunner.privateRun(TestRunner.java:767)
@@ -49,19 +75,289 @@
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
+          </exception> <!-- org.testng.TestNGException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- logInOption -->
-        <test-method status="SKIP" signature="testLoginpage()[pri:0, instance:com.theranos.test.theranosios.LoginTest@64633e5e]" name="testLoginpage" duration-ms="1" started-at="2014-03-05T19:55:20Z" depends-on-methods="com.theranos.test.theranosios.LoginTest.getTestData, com.theranos.test.theranosios.LoginTest.logInOption" finished-at="2014-03-05T19:55:20Z">
+        </test-method> <!-- openAbout -->
+        <test-method status="SKIP" signature="openMenu()[pri:0, instance:com.theranos.test.theranosios.MenuTest@1f3785d3]" name="openMenu" is-config="true" duration-ms="0" started-at="2014-04-03T11:23:26Z" finished-at="2014-04-03T11:23:26Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testLoginpage -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.theranos.test.theranosios.LoginTest@64633e5e]" name="afterTest" is-config="true" duration-ms="1" started-at="2014-03-05T19:55:20Z" finished-at="2014-03-05T19:55:20Z">
+        </test-method> <!-- openMenu -->
+        <test-method status="SKIP" signature="openAppointments()[pri:0, instance:com.theranos.test.theranosios.MenuTest@1f3785d3]" name="openAppointments" duration-ms="1" started-at="2014-04-03T11:23:26Z" finished-at="2014-04-03T11:23:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openAppointments -->
+        <test-method status="SKIP" signature="openMenu()[pri:0, instance:com.theranos.test.theranosios.MenuTest@1f3785d3]" name="openMenu" is-config="true" duration-ms="0" started-at="2014-04-03T11:23:26Z" finished-at="2014-04-03T11:23:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openMenu -->
+        <test-method status="SKIP" signature="openHome()[pri:0, instance:com.theranos.test.theranosios.MenuTest@1f3785d3]" name="openHome" duration-ms="1" started-at="2014-04-03T11:23:26Z" finished-at="2014-04-03T11:23:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openHome -->
+        <test-method status="SKIP" signature="openMenu()[pri:0, instance:com.theranos.test.theranosios.MenuTest@1f3785d3]" name="openMenu" is-config="true" duration-ms="0" started-at="2014-04-03T11:23:26Z" finished-at="2014-04-03T11:23:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openMenu -->
+        <test-method status="SKIP" signature="openLabOrders()[pri:0, instance:com.theranos.test.theranosios.MenuTest@1f3785d3]" name="openLabOrders" duration-ms="1" started-at="2014-04-03T11:23:26Z" finished-at="2014-04-03T11:23:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openLabOrders -->
+        <test-method status="SKIP" signature="openMenu()[pri:0, instance:com.theranos.test.theranosios.MenuTest@1f3785d3]" name="openMenu" is-config="true" duration-ms="0" started-at="2014-04-03T11:23:26Z" finished-at="2014-04-03T11:23:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openMenu -->
+        <test-method status="SKIP" signature="openLocations()[pri:0, instance:com.theranos.test.theranosios.MenuTest@1f3785d3]" name="openLocations" duration-ms="0" started-at="2014-04-03T11:23:26Z" finished-at="2014-04-03T11:23:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openLocations -->
+        <test-method status="SKIP" signature="openMenu()[pri:0, instance:com.theranos.test.theranosios.MenuTest@1f3785d3]" name="openMenu" is-config="true" duration-ms="0" started-at="2014-04-03T11:23:26Z" finished-at="2014-04-03T11:23:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openMenu -->
+        <test-method status="SKIP" signature="openProfile()[pri:0, instance:com.theranos.test.theranosios.MenuTest@1f3785d3]" name="openProfile" duration-ms="0" started-at="2014-04-03T11:23:26Z" finished-at="2014-04-03T11:23:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openProfile -->
+        <test-method status="SKIP" signature="openMenu()[pri:0, instance:com.theranos.test.theranosios.MenuTest@1f3785d3]" name="openMenu" is-config="true" duration-ms="0" started-at="2014-04-03T11:23:26Z" finished-at="2014-04-03T11:23:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openMenu -->
+        <test-method status="SKIP" signature="openResults()[pri:0, instance:com.theranos.test.theranosios.MenuTest@1f3785d3]" name="openResults" duration-ms="0" started-at="2014-04-03T11:23:27Z" finished-at="2014-04-03T11:23:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openResults -->
+        <test-method status="SKIP" signature="openMenu()[pri:0, instance:com.theranos.test.theranosios.MenuTest@1f3785d3]" name="openMenu" is-config="true" duration-ms="0" started-at="2014-04-03T11:23:27Z" finished-at="2014-04-03T11:23:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openMenu -->
+        <test-method status="SKIP" signature="openSettings()[pri:0, instance:com.theranos.test.theranosios.MenuTest@1f3785d3]" name="openSettings" duration-ms="0" started-at="2014-04-03T11:23:27Z" finished-at="2014-04-03T11:23:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openSettings -->
+        <test-method status="SKIP" signature="afterTest()[pri:0, instance:com.theranos.test.theranosios.MenuTest@1f3785d3]" name="afterTest" is-config="true" duration-ms="0" started-at="2014-04-03T11:23:27Z" finished-at="2014-04-03T11:23:27Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- com.theranos.test.theranosios.LoginTest -->
+      </class> <!-- com.theranos.test.theranosios.MenuTest -->
+      <class name="com.theranos.test.theranosios.InsuranceTest">
+        <test-method status="SKIP" signature="getOS(java.lang.String)[pri:0, instance:com.theranos.test.theranosios.InsuranceTest@2bb5340c]" name="getOS" is-config="true" duration-ms="0" started-at="2014-04-03T11:23:26Z" finished-at="2014-04-03T11:23:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getOS -->
+        <test-method status="SKIP" signature="setEnv()[pri:0, instance:com.theranos.test.theranosios.InsuranceTest@2bb5340c]" name="setEnv" is-config="true" duration-ms="0" started-at="2014-04-03T11:23:26Z" finished-at="2014-04-03T11:23:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setEnv -->
+        <test-method status="SKIP" signature="getTestData(java.util.Map)[pri:0, instance:com.theranos.test.theranosios.InsuranceTest@2bb5340c]" name="getTestData" duration-ms="0" started-at="2014-04-03T11:23:26Z" data-provider="testdata" finished-at="2014-04-03T11:23:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getTestData -->
+        <test-method status="SKIP" signature="openInsurancePage()[pri:0, instance:com.theranos.test.theranosios.InsuranceTest@2bb5340c]" name="openInsurancePage" duration-ms="1" started-at="2014-04-03T11:23:26Z" finished-at="2014-04-03T11:23:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openInsurancePage -->
+        <test-method status="SKIP" signature="afterTest()[pri:0, instance:com.theranos.test.theranosios.InsuranceTest@2bb5340c]" name="afterTest" is-config="true" duration-ms="0" started-at="2014-04-03T11:23:26Z" finished-at="2014-04-03T11:23:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- com.theranos.test.theranosios.InsuranceTest -->
+      <class name="com.theranos.test.theranosios.base.SetUpTest">
+        <test-method status="FAIL" signature="getDevice(java.lang.String)[pri:0, instance:com.theranos.test.theranosios.base.SetUpTest@5fe0f2f6]" name="getDevice" is-config="true" duration-ms="0" started-at="2014-04-03T11:23:26Z" finished-at="2014-04-03T11:23:26Z">
+          <exception class="org.testng.TestNGException">
+            <message>
+              <![CDATA[
+Parameter 'device' is required by @Configuration on method getDevice but has not been marked @Optional or defined
+in /private/var/folders/rd/d_5ss7j11ng8kk2k4cjyprjm0000gp/T/testng-eclipse-1866437451/testng-customsuite.xml]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.TestNGException: 
+Parameter 'device' is required by @Configuration on method getDevice but has not been marked @Optional or defined
+in /private/var/folders/rd/d_5ss7j11ng8kk2k4cjyprjm0000gp/T/testng-eclipse-1866437451/testng-customsuite.xml
+	at org.testng.internal.Parameters.createParameters(Parameters.java:155)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:358)
+	at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:86)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:199)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:138)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:277)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.TestNGException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getDevice -->
+        <test-method status="SKIP" signature="environmentSetUp()[pri:0, instance:com.theranos.test.theranosios.base.SetUpTest@5fe0f2f6]" name="environmentSetUp" is-config="true" duration-ms="0" started-at="2014-04-03T11:23:26Z" depends-on-methods="com.theranos.test.theranosios.base.SetUpTest.getDevice" finished-at="2014-04-03T11:23:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- environmentSetUp -->
+        <test-method status="SKIP" signature="readTestSuite()[pri:0, instance:com.theranos.test.theranosios.base.TestRunner@5982bcde]" name="readTestSuite" is-config="true" duration-ms="0" started-at="2014-04-03T11:23:26Z" finished-at="2014-04-03T11:23:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- readTestSuite -->
+        <test-method status="SKIP" signature="readAllTestCases()[pri:0, instance:com.theranos.test.theranosios.base.TestRunner@5982bcde]" name="readAllTestCases" is-config="true" duration-ms="0" started-at="2014-04-03T11:23:26Z" depends-on-methods="com.theranos.test.theranosios.base.TestRunner.readTestSuite" finished-at="2014-04-03T11:23:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- readAllTestCases -->
+        <test-method status="FAIL" signature="getLogLocation(java.lang.String)[pri:0, instance:com.theranos.test.theranosios.base.SetUpTest@5fe0f2f6]" name="getLogLocation" duration-ms="0" started-at="2014-04-03T11:23:26Z" finished-at="2014-04-03T11:23:26Z">
+          <exception class="org.testng.TestNGException">
+            <message>
+              <![CDATA[
+Parameter 'log-folder' is required by @Test on method getLogLocation but has not been marked @Optional or defined
+in /private/var/folders/rd/d_5ss7j11ng8kk2k4cjyprjm0000gp/T/testng-eclipse-1866437451/testng-customsuite.xml]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.TestNGException: 
+Parameter 'log-folder' is required by @Test on method getLogLocation but has not been marked @Optional or defined
+in /private/var/folders/rd/d_5ss7j11ng8kk2k4cjyprjm0000gp/T/testng-eclipse-1866437451/testng-customsuite.xml
+	at org.testng.internal.Parameters.createParameters(Parameters.java:155)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:358)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:450)
+	at org.testng.internal.Invoker.handleParameters(Invoker.java:1383)
+	at org.testng.internal.Invoker.createParameters(Invoker.java:1075)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1180)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.TestNGException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getLogLocation -->
+        <test-method status="SKIP" signature="tearDown()[pri:0, instance:com.theranos.test.theranosios.base.SetUpTest@5fe0f2f6]" name="tearDown" is-config="true" duration-ms="0" started-at="2014-04-03T11:23:27Z" finished-at="2014-04-03T11:23:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.theranos.test.theranosios.base.SetUpTest -->
+      <class name="com.theranos.test.theranosios.PassCodeTest">
+        <test-method status="SKIP" signature="setEnv()[pri:0, instance:com.theranos.test.theranosios.PassCodeTest@2f8a49e0]" name="setEnv" is-config="true" duration-ms="0" started-at="2014-04-03T11:23:27Z" finished-at="2014-04-03T11:23:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setEnv -->
+        <test-method status="SKIP" signature="resetPasscodeTest()[pri:0, instance:com.theranos.test.theranosios.PassCodeTest@2f8a49e0]" name="resetPasscodeTest" duration-ms="0" started-at="2014-04-03T11:23:27Z" finished-at="2014-04-03T11:23:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- resetPasscodeTest -->
+        <test-method status="FAIL" signature="providePasscodeTest(java.lang.String)[pri:0, instance:com.theranos.test.theranosios.PassCodeTest@2f8a49e0]" name="providePasscodeTest" duration-ms="0" started-at="2014-04-03T11:23:27Z" finished-at="2014-04-03T11:23:27Z">
+          <exception class="org.testng.TestNGException">
+            <message>
+              <![CDATA[
+Method providePasscodeTest requires 1 parameters but 0 were supplied in the @Test annotation.]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.TestNGException: 
+Method providePasscodeTest requires 1 parameters but 0 were supplied in the @Test annotation.
+	at org.testng.internal.Parameters.checkParameterTypes(Parameters.java:198)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:134)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:373)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:450)
+	at org.testng.internal.Invoker.handleParameters(Invoker.java:1383)
+	at org.testng.internal.Invoker.createParameters(Invoker.java:1075)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1180)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.TestNGException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- providePasscodeTest -->
+        <test-method status="SKIP" signature="getTestData(java.util.Map)[pri:0, instance:com.theranos.test.theranosios.PassCodeTest@2f8a49e0]" name="getTestData" duration-ms="1" started-at="2014-04-03T11:23:27Z" data-provider="testdata" finished-at="2014-04-03T11:23:27Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getTestData -->
+        <test-method status="SKIP" signature="clearPasscodeTest()[pri:0, instance:com.theranos.test.theranosios.PassCodeTest@2f8a49e0]" name="clearPasscodeTest" duration-ms="1" started-at="2014-04-03T11:23:27Z" finished-at="2014-04-03T11:23:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- clearPasscodeTest -->
+        <test-method status="SKIP" signature="afterTest()[pri:0, instance:com.theranos.test.theranosios.PassCodeTest@2f8a49e0]" name="afterTest" is-config="true" duration-ms="0" started-at="2014-04-03T11:23:27Z" finished-at="2014-04-03T11:23:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- com.theranos.test.theranosios.PassCodeTest -->
+      <class name="com.theranos.test.theranosios.BasicInfoTest">
+        <test-method status="SKIP" signature="getOs(java.lang.String)[pri:0, instance:com.theranos.test.theranosios.BasicInfoTest@320cf66b]" name="getOs" is-config="true" duration-ms="0" started-at="2014-04-03T11:23:26Z" finished-at="2014-04-03T11:23:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getOs -->
+        <test-method status="SKIP" signature="setEnv()[pri:0, instance:com.theranos.test.theranosios.BasicInfoTest@320cf66b]" name="setEnv" is-config="true" duration-ms="0" started-at="2014-04-03T11:23:26Z" finished-at="2014-04-03T11:23:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setEnv -->
+        <test-method status="SKIP" signature="getTestData(java.util.Map)[pri:0, instance:com.theranos.test.theranosios.BasicInfoTest@320cf66b]" name="getTestData" duration-ms="1" started-at="2014-04-03T11:23:26Z" data-provider="testdata" finished-at="2014-04-03T11:23:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getTestData -->
+        <test-method status="SKIP" signature="openBasicInfo()[pri:0, instance:com.theranos.test.theranosios.BasicInfoTest@320cf66b]" name="openBasicInfo" duration-ms="1" started-at="2014-04-03T11:23:26Z" finished-at="2014-04-03T11:23:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBasicInfo -->
+        <test-method status="SKIP" signature="provideBasicInfo()[pri:0, instance:com.theranos.test.theranosios.BasicInfoTest@320cf66b]" name="provideBasicInfo" duration-ms="1" started-at="2014-04-03T11:23:26Z" depends-on-methods="com.theranos.test.theranosios.BasicInfoTest.openBasicInfo" finished-at="2014-04-03T11:23:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- provideBasicInfo -->
+        <test-method status="SKIP" signature="afterTest()[pri:0, instance:com.theranos.test.theranosios.BasicInfoTest@320cf66b]" name="afterTest" is-config="true" duration-ms="0" started-at="2014-04-03T11:23:26Z" finished-at="2014-04-03T11:23:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- com.theranos.test.theranosios.BasicInfoTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -1,18 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite" verbose="5" preserve-order="true">
-  <test name="Login Test">
-  	<parameter name = "testsuiteid" value = "TS1"/>
-  	<parameter name = "passcodetimes" value = "2"/>	
-    <classes>
-   <class name="com.theranos.test.theranosios.base.SetUpTest"/>   
+
+<suite name="TheranosTestSuite" verbose="5" preserve-order="true"> <!-- Theranos Test Suite Started -->
+   <parameter name="log-folder"  value="theranostests"/>
+   <parameter name="device" value="ios"/>
+    
+  <test name="Login Test">  <!--  Login Test Started -->
+   <classes>
+      <class name="com.theranos.test.theranosios.base.SetUpTest"/>   
       <class name="com.theranos.test.theranosios.base.TestRunner"/>
       <class name="com.theranos.test.theranosios.LoginTest"/>
-      <class name="com.theranos.test.theranosios.PassCodeTest"/>
- 	    <methods>
-     	    <exclude name="resetPasscodeTest"/>
-     	    <exclude name="clearPasscodeTest"/>
-     	</methods>
+   </classes>
+  </test>   
+ 
+ <!--  <test name="Menu Test"> 
+      <classes>
+          <class name="com.theranos.test.theranosios.MenuTest"> 
+          	<methods>
+          	    <include name="openProfile"/>
+          	</methods> 
+          </class>  
+      </classes>
+  </test>			 --> <!-- Menu Test -->
+  
+ 
+  <test name="Basic Info Test">   
+    <classes>
+        <class name="com.theranos.test.theranosios.MenuTest"> 
+          	<methods>
+          	    <include name="openHome"/>
+          	    <include name="openProfile"/>
+          	</methods> 
+          </class>  
+      <class name="com.theranos.test.theranosios.BasicInfoTest"/>
     </classes>
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
+  </test>  
+  
+ 
+  <test name="Insurance">  
+     <classes>
+         <class name="com.theranos.test.theranosios.InsuranceTest"/>
+     </classes>
+ </test>
+</suite>  <!-- Theranos Test Suite Completed -->

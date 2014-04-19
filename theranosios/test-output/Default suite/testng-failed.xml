@@ -3,14 +3,51 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
+      <class name="com.theranos.test.theranosios.PassCodeTest">
+        <methods>
+          <include name="resetPasscodeTest"/>
+          <include name="providePasscodeTest"/>
+          <include name="getTestData"/>
+          <include name="clearPasscodeTest"/>
+        </methods>
+      </class> <!-- com.theranos.test.theranosios.PassCodeTest -->
+      <class name="com.theranos.test.theranosios.InsuranceTest">
+        <methods>
+          <include name="getTestData"/>
+          <include name="openInsurancePage"/>
+        </methods>
+      </class> <!-- com.theranos.test.theranosios.InsuranceTest -->
       <class name="com.theranos.test.theranosios.LoginTest">
         <methods>
           <include name="logInOption"/>
-          <include name="afterTest"/>
           <include name="getTestData"/>
           <include name="testLoginpage"/>
         </methods>
       </class> <!-- com.theranos.test.theranosios.LoginTest -->
+      <class name="com.theranos.test.theranosios.BasicInfoTest">
+        <methods>
+          <include name="provideBasicInfo"/>
+          <include name="getTestData"/>
+          <include name="openBasicInfo"/>
+        </methods>
+      </class> <!-- com.theranos.test.theranosios.BasicInfoTest -->
+      <class name="com.theranos.test.theranosios.base.SetUpTest">
+        <methods>
+          <include name="getLogLocation"/>
+        </methods>
+      </class> <!-- com.theranos.test.theranosios.base.SetUpTest -->
+      <class name="com.theranos.test.theranosios.MenuTest">
+        <methods>
+          <include name="openHome"/>
+          <include name="openSettings"/>
+          <include name="openAbout"/>
+          <include name="openLocations"/>
+          <include name="openLabOrders"/>
+          <include name="openResults"/>
+          <include name="openProfile"/>
+          <include name="openAppointments"/>
+        </methods>
+      </class> <!-- com.theranos.test.theranosios.MenuTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

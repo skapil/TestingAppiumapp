@@ -3,8 +3,11 @@ package com.theranos.test.theranosios.drivers;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -12,9 +15,9 @@ import java.util.Map;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.ss.usermodel.DateUtil;
 import org.apache.poi.ss.usermodel.Row;
-
-
 
 public class ExcelDriver {
 	
@@ -101,19 +104,27 @@ public class ExcelDriver {
 	
 	public static Cell findCell(String text)
 	{
-	    for(Row row : sheet) 
-	    {   
-	        for(Cell cell : row) 
-	        {     
-	          cell.setCellType(Cell.CELL_TYPE_STRING);	         
-        	  if (text.equalsIgnoreCase(cell.getStringCellValue()))
-            	 {
-            		 return cell; 
-            	 }
-            }
-	    }	           
+		try
+		{
+		    for(Row row : sheet) 
+		    {   
+		        for(Cell cell : row) 
+		        { 
+		          cell.setCellType(Cell.CELL_TYPE_STRING);	         
+	        	  if (text.equalsIgnoreCase(cell.getStringCellValue()))
+	            	 {
+	            		 return cell; 
+	            	 }
+	            }
+		    }
+		}
+		catch(NullPointerException nl){
+			System.out.println("Not able to get the data from excel, data return value will be null now");
+			return null;
+			}	    
 	    return null;
 	}
+	
 	public boolean isExecutableRow(int rownumber, String isexecutablecolumn)
 	{
 		Row row = sheet.getRow(rownumber);		
@@ -135,12 +146,12 @@ public class ExcelDriver {
 		return sheet.getLastRowNum();
 	}
 	
-	public int getRowIndex(String columnname)
+	public int getExcelRowIndex(String columnname)
 	{
 		return findCell(columnname).getRowIndex();
 	}
 	
-	public int getColumnIndex(String columnname)
+	public int getExcelColumnIndex(String columnname)
 	{
 		return findCell(columnname).getColumnIndex();
 	}
@@ -152,11 +163,31 @@ public class ExcelDriver {
 		
 		for (Cell cell : row)
 		{
-			if (cell.getCellType() != Cell.CELL_TYPE_BLANK)
+			if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC)
+			{
+				if (DateUtil.isCellDateFormatted(cell)) 
+				{
+					// Get the date today using cell.getDateCellValue() 
+			        Date datevalue = cell.getDateCellValue();				
+				    DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+    
+			       // Using DateFormat format method we can create a string 
+			       // representation of a date with the defined format.
+			       String reportdate = df.format(datevalue);
+				   rowvalues.add(reportdate.toString());
+			   }
+			else {
+				cell.setCellType(Cell.CELL_TYPE_STRING);
+				rowvalues.add(cell.getStringCellValue().toString());
+				}
+			}
+			else if (cell.getCellType() != Cell.CELL_TYPE_BLANK)
 			{
 				cell.setCellType(Cell.CELL_TYPE_STRING);
 				rowvalues.add(cell.getStringCellValue().toString());
 			}
+			else
+				rowvalues.add("null");
 		}
 		return rowvalues;
 	}
