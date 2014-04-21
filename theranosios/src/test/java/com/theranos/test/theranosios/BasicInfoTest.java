@@ -73,9 +73,13 @@ public class BasicInfoTest{
   //Open the Basic Info page 
   @Test
   public void openBasicInfo() {
+	  System.out.println("Opening basic info page------");
 	  operation.openPage("Basic Info", "Profile", driver);	  
   }
   
+  public void backScreen(){
+	  
+  }
   @Test(dependsOnMethods="openBasicInfo")
   public void provideBasicInfo() throws Exception
   {
@@ -88,7 +92,8 @@ public class BasicInfoTest{
 		     if(!xlUtil.isExecutableRow(iter, "Executable"))
 			  continue;
 		     
-		     //openBasicInfo();
+		     System.out.println("Opening Basic info page");
+		     openBasicInfo();
 			 ArrayList<String> rowvalues = xlUtil.getRowValues(iter);
 			 
 			 System.out.println("========================Getting data to provide to application===============================");
@@ -176,6 +181,8 @@ public class BasicInfoTest{
 			  {
 				  System.out.println("Error message appears on device, Dismissing the alert");
 				  flag = operation.dimissAllAlert(driver);
+				  System.out.println("Getting back to profile page");
+				  operation.backToProfile(driver);
 				  continue;				  
 			  }				  
 		 }
@@ -283,6 +290,7 @@ public class BasicInfoTest{
   {
 	  boolean flag = false;
 	  WebElement elementname = null;
+	  
 	  try
 	  {
 		  System.out.println("Providing the data to field  : "+result);
@@ -327,7 +335,6 @@ public class BasicInfoTest{
 	  String result = rowvalues.get(xlUtil.getExcelColumnIndex("DateOfBirth")).toString();	
 	  System.out.println("Date of Birth of user :  "+result);
 	  boolean flag = false;
-
 	  //For Android device	
 	  if (!result.isEmpty() && !result.equals("null"))
 	  {
@@ -502,6 +509,7 @@ public class BasicInfoTest{
 	  {
 		  writeInTextField(element,result);
 	  }
+	  //Check for Mailing as Billing address
 	  else if (!result.equalsIgnoreCase("none") && operation.equals("click") && !result.equals("null"))
 	  {
 		  selectOption(element,result);
@@ -510,7 +518,6 @@ public class BasicInfoTest{
 		  System.out.println("No data found");
     }
   
-  //Check for Mailing as Billing address
   
   public boolean checkForBillingAddress(ArrayList<String> rowvalues) throws IOException
   {

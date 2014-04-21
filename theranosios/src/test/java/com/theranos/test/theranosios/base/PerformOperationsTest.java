@@ -141,7 +141,12 @@ public class PerformOperationsTest {
   		      driver.findElement(By.xpath(elementid)).click();
   			}
   			catch(Exception e) {
-  				driver.findElement(By.name(elementid)).click();
+  				try{
+  					driver.findElement(By.name(elementid)).click();
+  				}
+  				catch(Exception e1){
+  					System.out.println("Not able to found the element");
+  				}
   			}
   		    System.out.println("Waiting for 8 seconds to open " + elementinfo + " Page");
   	        driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS); 
@@ -157,4 +162,44 @@ public class PerformOperationsTest {
   		  System.out.println("\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Hiding the Exception message here >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> \n");
   	  }
     }
-}
+   
+    
+    
+   //Send information to pickerWheel
+    public void inputValue(String elementid,String elementinfo,String input,WebDriver driver)
+    {
+    	boolean flag = false;
+    	try
+    	{
+    		System.out.println("Checking if " + elementinfo + "present");
+    		flag = verifyMenuButton(flag, elementid,driver);
+    		  if (flag == true)
+    		  {
+    			System.out.println("Opening " + elementinfo + " .");
+    			try {
+    		      driver.findElement(By.xpath(elementid)).sendKeys(input);
+    			}
+    			catch(Exception e) {
+    				try{
+    					driver.findElement(By.name(elementid)).sendKeys(input);
+    				}
+    				catch(Exception e1){
+    					System.out.println("Not able to found the element");
+    				}
+    			}    		    
+    	        driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS); 
+    		  }
+    		  else
+    		  {
+    		  	 System.out.println("No " + elementinfo + " field on the current screen"); 
+    		  }
+    	   }
+    	  catch(Exception e)
+    	  {
+    		  System.out.println("Not able to find " + elementinfo + " field, skipping this option");
+    		  System.out.println("\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Hiding the Exception message here >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> \n");
+    	  }
+    	}   
+    
+  }
+

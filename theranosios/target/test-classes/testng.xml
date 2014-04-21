@@ -13,7 +13,7 @@
    </classes>
   </test>   
  
- <!--  <test name="Menu Test"> 
+   <test name="Menu Test"> 
       <classes>
           <class name="com.theranos.test.theranosios.MenuTest"> 
           	<methods>
@@ -21,7 +21,7 @@
           	</methods> 
           </class>  
       </classes>
-  </test>			 --> <!-- Menu Test -->
+  </test>			  <!-- Menu Test -->
   
  
   <test name="Basic Info Test">   
@@ -39,6 +39,12 @@
  
   <test name="Insurance">  
      <classes>
+        <!-- <class name="com.theranos.test.theranosios.MenuTest"> 
+          	<methods>
+          	    <include name="openHome"/>
+          	    <include name="openProfile"/>
+          	</methods>
+         </class> -->
          <class name="com.theranos.test.theranosios.InsuranceTest"/>
      </classes>
  </test>

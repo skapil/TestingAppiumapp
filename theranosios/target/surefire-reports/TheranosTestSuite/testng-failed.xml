@@ -3,7 +3,7 @@
 <suite verbose="0" name="Failed suite [TheranosTestSuite]">
   <parameter name="device" value="ios"/>
   <parameter name="log-folder" value="theranostests"/>
-  <test name="Basic Info Test(failed)">
+  <test name="Insurance(failed)">
     <classes>
       <class name="com.theranos.test.theranosios.base.SetUpTest">
         <methods>
@@ -12,15 +12,6 @@
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.theranos.test.theranosios.base.SetUpTest -->
-      <class name="com.theranos.test.theranosios.BasicInfoTest">
-        <methods>
-          <include name="getOs"/>
-          <include name="provideBasicInfo"/>
-          <include name="setEnv"/>
-          <include name="afterTest"/>
-          <include name="openBasicInfo"/>
-        </methods>
-      </class> <!-- com.theranos.test.theranosios.BasicInfoTest -->
       <class name="com.theranos.test.theranosios.base.TestRunner">
         <methods>
           <include name="readAllTestCases"/>
@@ -35,21 +26,21 @@
       </class> <!-- com.theranos.test.theranosios.LoginTest -->
       <class name="com.theranos.test.theranosios.MenuTest">
         <methods>
-          <include name="setEnv"/>
-          <include name="setEnv"/>
-          <include name="openMenu"/>
-          <include name="openMenu"/>
-          <include name="afterTest"/>
-          <include name="afterTest"/>
+          <include name="openHome"/>
+          <include name="openProfile"/>
         </methods>
       </class> <!-- com.theranos.test.theranosios.MenuTest -->
       <class name="com.theranos.test.theranosios.InsuranceTest">
         <methods>
-          <include name="getOS"/>
-          <include name="afterTest"/>
-          <include name="setEnv"/>
+          <include name="takeInsuranceCardPhoto"/>
+          <include name="addInsuranceInfo"/>
+          <include name="getTestData"/>
+          <include name="addNewInsurance"/>
+          <include name="enterInsuranceInfo"/>
+          <include name="openInsurancePage"/>
+          <include name="cancelAddInsurance"/>
         </methods>
       </class> <!-- com.theranos.test.theranosios.InsuranceTest -->
     </classes>
-  </test> <!-- Basic Info Test(failed) -->
+  </test> <!-- Insurance(failed) -->
 </suite> <!-- Failed suite [TheranosTestSuite] -->
